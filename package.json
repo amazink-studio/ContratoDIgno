@@ -1,0 +1,39 @@
+{
+  "name": "contratodigno",
+  "version": "1.0.0",
+  "description": "Sitio para la campaña ConTrato Digno en México y Guatemala",
+  "main": "index.js",
+  "scripts": {
+    "build:sass": "sass --no-source-map src/sass:public/css",
+    "copy:html": "copyfiles -u 1 ./src/*.html ./src/pages/*.html ./src/*.webmanifest public",
+    "copy:img": "copyfiles -u 1 ./src/img/* ./src/img/**/* ./src/*.png ./src/*.ico public",
+    "copy:js": "copyfiles -u 1 ./src/js/**/* public",
+    "copy": "npm-run-all --parallel copy:*",
+    "watch:sass": "sass  --no-source-map --watch src/sass:public/css",
+    "watch:html": "onchange 'src/**/*.html' -- npm run copy:html",
+    "watch:img": "onchange 'src/img/**/*' -- npm run copy:img",
+    "watch:js": "onchange 'src/js/**/*' -- npm run copy:js",
+    "watch": "npm-run-all --parallel watch:*",
+    "serve": "browser-sync start --server public --files public",
+    "start": "npm-run-all copy --parallel watch serve",
+    "build": "npm-run-all copy:* build:*",
+    "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dothedada/ConTratoDigno/issues"
+  },
+  "homepage": "https://github.com/dothedada/ConTratoDigno#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "browser-sync": "^2.29.3",
+    "copyfiles": "^2.4.1",
+    "cssnano": "^6.0.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.63.3"
+  }
+}

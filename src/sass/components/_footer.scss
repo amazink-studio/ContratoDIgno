@@ -1,0 +1,183 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.footerSitio {
+	position: relative;
+	background-color: $moradoPrincipal;
+	width: 100%;
+
+	&::before {
+		position: absolute;
+		display: block;
+		content: "";
+		border-top: 6pt dotted $blanco;
+		width: 100%;
+		top: -3rem;
+	}
+	
+	&__promotores {
+		display: flex;
+		flex-direction: column;
+		padding: 2rem 0 0;
+		gap:2rem;
+
+
+		@include pantalla(medium) {
+			flex-direction: row;
+			justify-content: center;
+		}
+	}
+
+	&__promotor {
+		flex: 1;
+		margin: 0 0 3rem;
+		display: flex;
+
+		flex-direction: column;
+		align-items: center;
+
+		@include pantalla(normal) {
+			padding: 4rem 2rem 0;
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 1rem;
+			max-width: 600px;
+		}
+	}
+
+	&__logoPromotor {
+		flex: 1;
+		display: block;
+		width: 100%;
+		max-width: 300px;
+		padding: 0.2rem 0 0;
+		margin: 0 0 1rem;
+
+		@include pantalla(normal) {
+			max-width: unset;
+		}
+
+		&:hover {
+			background-color: $moradoSecundario;
+			transition: background-color 0.5s ease-in-out;
+		}
+		
+	}
+
+	&__redes,
+	&__direcciones {
+		flex: 1;
+		list-style: none;
+		padding: 0;
+		
+	}
+
+	&__redes {
+		justify-content: center;
+		margin: 0 0 1rem;
+		display: flex;
+
+		a {
+			&:hover > .footerSitio__logoRedes {
+				fill: $mentaPrincipal;
+			}
+		}
+
+		@include pantalla(normal) {
+			justify-content: flex-start;
+			padding: 1.5rem 0 0;
+		}
+
+	}
+
+	&__direcciones {
+		
+		color: $blanco;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		line-height: 1.4;
+
+		li {
+			margin: 0.5rem 0;
+		}
+
+		a {
+			color: $blanco;
+
+			&:hover {
+				color: $mentaPrincipal;
+			}
+		}
+
+		@include pantalla(normal) {
+			align-items: flex-start;
+			text-align: left;
+			padding: 0 1rem;
+		}
+	}
+
+	&__logoRedes {
+		height: 2rem;
+		margin: 0 1rem;
+		fill: $blanco;
+
+	}
+
+	&__aliados {
+		// background-color: $moradoSecundario;
+		padding: 1rem 0 2rem;
+		border-top: dotted 2px $moradoSecundario;
+	}
+
+	&__leyenda {
+		text-align: center;
+		font-size: 1.6rem;
+		font-weight: 700;
+		color: $blanco;
+	}
+
+	&__orgAliadas {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		padding: 0 1rem;
+		gap: 1rem;
+
+		@include pantalla(medium) {
+			justify-content: center;
+		}
+
+		a:hover {
+			background-color: $moradoSecundario;
+			transition: background-color 0.5s ease-in-out;
+		}
+
+	}
+
+	&__aliada {
+		width: 100%;
+		height: 100%;
+		max-width: 150px;
+		
+		@include pantalla(large) {
+			max-width: 200px;
+		}
+	}
+
+	&__copyright {
+		background-color: #3c73a8;
+		padding: 2rem;
+		text-align: center;
+
+		a {
+			color: #FFF;
+			text-decoration: none;
+		}
+	} 
+
+}
+

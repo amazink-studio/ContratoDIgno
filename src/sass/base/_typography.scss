@@ -1,0 +1,82 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,700;1,300&family=Patua+One&display=swap');
+
+// Se establecen las variables para los tamaños fuentes y la altura de la línea
+:root {
+	--fs-titulos: 2.2rem;
+	--lh-titulos: 1;
+	--fs-subtitulos: 1.6rem;
+	--lh-subtitulos: 1;
+	--fs-p: 1rem;
+	--lh-p: 1.4;
+	--fs-pResaltado:1.2rem;
+
+	@include pantalla(small) {
+		--fs-titulos: 2.6rem;
+		--lh-titulos: 1.2;
+		--fs-subtitulos: 2rem;
+		--lh-subtitulos: 1.2;
+		--fs-p: 1rem;
+		--fs-pResaltado:1.2rem;
+	}
+
+	@include pantalla(medium) {
+		--fs-titulos: 2.8rem;
+		--fs-subtitulos: 1.8rem;
+		--fs-p: 1rem;
+		--fs-pResaltado:1.2rem;
+	}
+
+	@include pantalla(normal) {
+		--fs-titulos: 3rem;
+		--fs-subtitulos: 2rem;
+		--fs-p: 1.2rem;
+		--fs-pResaltado:1.6rem;
+	}
+
+	@include pantalla(large) {
+		--fs-titulos: calc(3rem + 1vw);
+		--fs-subtitulos: calc(2rem + 1vw);
+		--fs-p: 1.4rem;
+		--fs-pResaltado:1.8rem;
+	}
+}
+
+html {
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 100%;
+}
+
+h1, h2, h3 {
+	font-family: 'Patua One', serif;
+	margin: 0;
+}
+
+h4 {
+	font-family: 'Merriweather Sans', sans-serif;
+	margin: 0;
+	font-size: var(--fs-pResaltado);
+}
+
+h1 {
+	font-size: var(--fs-titulos);
+	line-height: var(--lh-titulos);
+}
+
+h2, h3 {
+	font-size: var(--fs-subtitulos);
+	line-height: var(--lh-subtitulos);
+}
+
+p {
+	font-size: var(--fs-p);
+	line-height: var(--lh-p);
+}
+
+p strong {
+	font-size: var(--fs-pResaltado);
+	line-height: var(--lh-p);
+	font-weight: 700;
+}

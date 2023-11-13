@@ -1,0 +1,222 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.menu {
+	top: 0;
+	position: fixed;
+	width: 100%;
+	display: flex;
+	background-color: $mentaPrincipal;
+	z-index: 1000;
+	transition: top 0.5s;
+
+	@include pantalla(medium) {
+		background-color: unset;
+		justify-content: space-between;
+		max-width: 1200px;
+		
+		
+	}
+
+	&__logo {
+		flex-shrink: 0;
+		width: 210px;
+		height: 80px;
+		margin: 0 0 auto 0;
+		display: block;
+		z-index: 40;
+		background-image: url(../img/logo_contratoDigno-h.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+
+		@include pantalla(medium) {
+			height: 120px;
+			width: 120px;
+			background-image: url(../img/logo_contratoDigno.svg);
+			background-color: $mentaPrincipal;
+		}
+	}
+	
+	&__botonera {
+		clear: both;
+		position: absolute;
+		box-sizing: border-box;
+		top: 80px;
+		left: 100%;
+		width: 100%;
+		margin: 0;
+		padding: 2rem;
+		height: calc(100vh - 80px);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		
+		list-style: none;
+		background-image: url(../img/fondo_menu.png);
+		background-position: left bottom;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-color: $moradoSecundario;
+		transition: left .2s ease-in-out;
+
+		@include pantalla(medium) {
+			top: unset;
+			left: unset;
+			position: unset;
+			padding: 0;
+			height: 50%;
+			flex-direction: row;
+			justify-content: space-evenly;
+			gap: 0.1rem;
+			background-image: none;
+			border-bottom: solid 1px $blanco;
+		}
+
+		li {
+			text-align: center;
+			text-wrap: balance;
+
+			@include pantalla(medium) {
+				flex: 1;
+				&:nth-child(2){
+					flex: 2;
+				}
+				&:nth-child(3){
+					flex: 3;
+				}
+				&:last-child {
+					padding-right: 1rem;
+				}
+			}
+			
+		}
+
+		a {
+			display: block;
+			color: $blanco;
+			text-decoration: none;
+			font-weight: 900;
+			font-size: 1.2rem;
+			line-height: 1.4;
+			padding: 1rem;
+			transition: all 0.2s ease-in-out;
+
+			&:hover {
+				background-color: $mentaPrincipal;
+				color: $moradoSecundario;
+			}
+
+			&:active,
+			&:focus {
+				background-color: $mentaSecundario;
+			}
+
+			&.actual {
+				background-color: $moradoPrincipal;
+
+				&:hover {
+					color: #FFF;
+				}
+			}
+
+			@include pantalla(medium) {
+				font-size: 0.8rem;
+				font-weight: 300;
+				padding: 0 0.8rem ;
+				height: 100%;
+
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+
+			}
+		}
+	
+		
+
+	}
+	.navegacion {
+		width: 100%;
+
+		.menu-btn {
+			display: none;
+				&:checked {
+
+				& ~ .menu__botonera {
+					left: 0px;
+				}
+
+				& ~ .menu-icon .navicon {
+					background: transparent;
+				}
+
+				& ~ .menu-icon:not(.steps) .navicon:before,
+				& ~ .menu-icon:not(.steps) .navicon:after {
+					top: 0;
+					transition: all .2s ease-out;
+					
+				}
+
+				& ~ .menu-icon .navicon:before {
+					transform: rotate(-45deg);
+				}
+
+				& ~ .menu-icon .navicon:after {
+					transform: rotate(45deg);
+				}
+			}
+		}
+
+		.menu-icon {
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			right: 0;
+			cursor: pointer;
+			display: inline-block;
+			user-select: none;
+
+			.navicon {
+				background-color: $moradoSecundario;
+				display: block;
+				height: 4px;
+				position: relative;
+				margin: 38px 25px 0 auto;
+				transition: background .2s ease-out;
+				width: 30px;
+	
+				&:before,
+				&:after {
+					background-color: $moradoSecundario;
+					content: '';
+					display: block;
+					height: 100%;
+					width: 100%;
+					position: absolute;
+					transition: all .2s ease-out;
+					
+				}
+	
+				&:before {
+					top: 10px;
+				}
+	
+				&:after {
+					top: -10px;
+				}
+			}
+
+			@include pantalla(medium) {
+				display: none;
+			}
+		}
+		
+	}
+}
+.esconder {
+	top: -80px;
+
+	@include pantalla(medium) {
+		top:-120px;
+	}
+}

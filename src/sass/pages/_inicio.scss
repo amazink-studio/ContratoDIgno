@@ -1,0 +1,345 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.inicio {
+	.cabezoteInicio {
+		@include pantalla(medium) {
+			background-image: 
+				url(../img/inicio_seccion1-izquierda.png),
+				url(../img/inicio_seccion1-derecha.png);
+			background-position: 
+				bottom left,
+				bottom right;
+			background-repeat: no-repeat;
+			background-size: 20vw;
+		}
+
+		&__llamado {
+			position: relative;
+			color: $moradoSecundario;
+			text-align: center;
+			display: flex;
+			gap: 10vh;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items: center;
+			min-height: 70vh;
+						
+			@include pantalla(medium) {
+				padding: 4rem 2rem 0;
+				color: $naranjaSecundario;
+			}
+
+			
+
+			&::before {
+				position: absolute;
+				display: block;
+				content: "";
+				width: 100%;
+				height: 100%;
+				z-index: -100;
+				background-image: url(../img/inicio_seccion1-derecha.png);
+				background-position: bottom right;
+				background-size: contain;
+				background-repeat: no-repeat;
+				transform: rotate(180deg);
+
+				@include pantalla(medium) {
+					position: unset;
+					display: unset;
+					content: unset;
+					width: unset;
+					height: unset;
+					z-index: unset;
+					background-image: unset;
+					background-position: unset;
+					background-size: unset;
+					background-repeat: unset;
+					transform: unset;
+				}
+			}
+
+			& > * {
+				padding: 0 1rem;
+				max-width: 20ch;
+				text-wrap: balance;
+				will-change: transform;
+			}
+		}
+		&__informacion {
+			position: relative;
+			color: $moradoSecundario;
+			text-align: center;
+			margin: 20vh auto 0;
+			padding: 0 2rem;
+			
+
+			display: flex;
+			gap: 10vh;
+			flex-direction: column;
+			justify-content: flex-start;
+			height: 70vh;
+
+			p {
+				margin: 0 auto;
+				max-width: 45ch;
+
+			}
+
+			@include pantalla(medium) {
+				height: unset;
+				padding: 0 2rem 6rem;
+				margin: 10vh auto 0;
+			}
+
+			&::after {
+				position: absolute;
+				display: block;
+				content: "";
+				width: 100%;
+				height: 100%;
+				left: 0;
+				z-index: -100;
+				background-image: url(../img/inicio_seccion1-izquierda.png);
+				background-position: bottom left;
+				background-size: contain;
+				background-repeat: no-repeat;
+
+				@include pantalla(medium) {
+					position: unset;
+					display: unset;
+					content: unset;
+					width: unset;
+					height: unset;
+					z-index: unset;
+					background-image: unset;
+					background-position: unset;
+					background-size: unset;
+					background-repeat: unset;
+					transform: unset;
+				}
+			}
+		}
+	}
+
+	.hogarSeguro {
+		background-color: $moradoSecundario;
+		border: 0;
+		padding: 0;
+		line-height: 0;
+		color: $blanco;
+		text-align: center;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+
+		@include pantalla(medium) {
+			position: relative;
+			background-image: url(../img/pagina2_seccion1-fondo.png);
+			background-position: top center;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+
+		@include pantalla(xlarge) {
+			background-image: 
+				url(../img/inicio_seccion1-izquierda.png),
+				url(../img/inicio_seccion1-derecha.png),
+				url(../img/pagina2_seccion1-fondo.png);
+			background-position: 
+				bottom left,
+				bottom right,
+				top center;
+			background-size: 
+				300px,
+				300px,
+				contain;
+			background-repeat: no-repeat;
+		}
+
+		& > p {
+			padding: 0 2rem;
+			max-width: 31ch;
+
+			&:first-child {
+				padding: 6rem 2rem 0;
+			}
+
+			@include pantalla(medium){
+				padding: 40vh 0 0;
+				margin: 0 0 -400px;		
+
+				&:first-child {
+					padding: 40vh 0 0;
+					margin: 0;
+				}
+			}
+		}
+
+		
+
+		&__imagen {
+			width: 100%;
+			height: 100%;
+			max-width: 1400px;
+			object-fit: contain;
+
+			@include pantalla(medium) {
+				padding: 6rem 0 0;
+				position:sticky;
+				bottom: 0;
+				max-height: 90vh;
+			}
+		}
+
+	}
+
+	.contrato {
+		background-color: $mentaSecundario;
+		margin: 0;
+		padding: 4rem 0 0;
+		line-height: 0;
+
+		@include pantalla(medium) {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+		}
+
+		@include pantalla(xlarge) {
+			justify-content: center;
+		}
+
+		p {
+			padding: 0 2rem;
+			margin: 0 auto 2rem;
+			text-align: center;
+			font-weight: 700;
+			color: $moradoSecundario;
+			max-width: 35ch;
+
+			@include pantalla(medium){
+				flex: 2;
+				margin: unset;
+				text-align: left;
+			}
+
+			@include pantalla(xlarge) {
+				flex: 0 1 initial;
+
+			}
+		}
+		
+		&__imagen {
+			width: 100%;
+			height: 100%;
+			max-width: 980px;
+			object-fit: contain;
+			line-height: 0;
+
+			@include pantalla(medium){
+				flex: 3;
+			}
+
+			@include pantalla(xlarge) {
+				flex: 0 1 initial;
+			}
+		}
+
+	}
+
+	.responsabilidad {
+		margin: 0 auto;
+		padding: 5rem 2rem 0;
+		line-height: 0;
+		display: flex;
+		flex-direction: column;
+		max-width: 1200px;
+
+		@include pantalla(medium) {
+			flex-direction: row;
+			justify-content: center;
+		}
+
+		&__texto {
+			align-self: flex-start;
+
+			@include pantalla(medium) {
+				flex: 3;
+				align-self: unset;
+			}
+
+			h2 {
+				color: $moradoSecundario;
+				max-width: 20ch;
+			}
+	
+			p {
+				margin: 2rem 0 0;
+				max-width: 40ch;
+			}
+		}
+
+		&__imagen {
+			align-self: flex-end;
+
+			width: 100%;
+			height: 100%;
+			max-width: 380px;
+			object-fit: contain;
+			line-height: 0;
+
+			@include pantalla(medium) {
+				flex: 2;
+				align-self: unset;
+				max-width: 580px;
+			}
+		}
+	}
+
+	.llamadoAccion {
+		background-color: $moradoSecundario;
+		margin: 0;
+		padding: 5rem 0 8rem;
+		color: $blanco;
+
+		p {
+			font-size: var(--fs-subtitulos);
+			font-family: 'Patua One', serif;
+			line-height: 1.2;
+			text-align: center;
+			max-width: 30ch;
+			margin: 0 auto;
+			padding: 0 2rem 2rem;
+		}
+
+		a{
+			display: block;
+			width: 50%;
+			max-width: 25ch;
+			padding: 1rem 2rem;
+			margin: 0 auto;
+			font-size: var(--fs-p);
+			line-height: 1.4;
+			font-weight: 700;
+			text-decoration: none;
+			color: $moradoSecundario;
+			background-color: $mentaSecundario;
+			border-radius: 1rem;
+			box-shadow: 4px 4px 0 $moradoPrincipal;
+			text-align: center;
+			transition: all 0.2s ease-in-out;
+
+			&:active,
+			&:hover {
+				background-color: $naranjaSecundario;
+				color: $blanco;
+				box-shadow: 4px 4px 0 $amarilloSecundario;
+			}
+		}
+	}
+	
+}

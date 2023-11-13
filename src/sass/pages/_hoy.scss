@@ -1,0 +1,542 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.hoy {
+
+	&__cabezote {
+		text-align: center;
+		padding: 4rem 0 3rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		background-color: $moradoSecundario;
+		color: $blanco;
+		background-image: url(../img/pagina2_seccion1-fondo.png);
+		background-size: cover;
+		background-attachment: fixed;
+
+		@include pantalla(medium) {
+			padding: 6rem 0;
+		}
+	}
+
+	&__titulo {
+		margin: 5rem 0 3rem;
+
+		@include pantalla(medium) {
+			order: 1;
+			padding: 0;
+			margin: 1rem 0 0;
+		}
+	}
+
+	&__imagen {
+		width: 90%;
+		height: 90%;
+		margin: 0;
+		padding: 0;
+		max-width: 1260px;
+	}
+
+	&__informacion {
+		margin: 0;
+		padding: 0 2rem;
+		margin: 1rem 0 0;
+		max-width: 45ch;
+
+		@include pantalla(medium) {
+			order: 1;
+		}
+	}
+
+	.convenio {
+		width: 100%;		
+
+		&__cabezote {
+			padding: 4rem 2rem 0;
+			text-align: center;
+
+			h2 {
+				font-size: var(--fs-titulos);
+				color: $naranjaSecundario;
+			}
+			
+			p {
+				max-width: 50ch;
+				margin: 2rem auto;
+			}
+		}
+
+		&__footer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+
+			@include pantalla(medium) {
+				flex-direction: row-reverse;
+				max-width: 1200px;
+				margin: 5rem auto;
+				justify-content: center;
+				text-align: left;
+				
+			}
+
+			p {	
+				max-width: 35ch;
+
+			}
+
+			a {
+				color: $moradoPrincipal;
+			}
+
+			img {
+				box-sizing: border-box;
+				padding: 0 2rem;
+				width: 100%;
+				height: 100%;
+				max-width: 400px;
+			}
+		}
+	}
+
+	.estandares {
+		&__titulo {
+			color: $moradoSecundario;
+			text-align: center;
+			padding: 0 1rem;
+			max-width: 20ch;
+			line-height: 1.2;
+			margin: 0 auto;
+		}
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			max-width: 1400px;
+
+			padding: 0;
+			margin: 0 auto;
+
+			list-style: none;
+
+		}
+
+		&__estandar {
+			
+			padding: 0 2rem;
+			display: flex;
+			max-width: 250px;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+
+			@include pantalla(medium) {
+				max-width: 320px;
+			}
+
+			@include pantalla(large) {
+				max-width: 500px;
+			}
+		}
+
+		&__nombre {
+			color: $naranjaSecundario;
+			margin: -2rem 0 0;
+		}
+	}
+
+	.estado {
+		&__cabezote {
+			margin: 2rem auto 0;
+			background-color: $amarilloSecundario;
+			line-height: 0;
+
+			@include pantalla(medium) {
+				max-width: 1200px;
+				margin: 4rem auto 0;
+			}
+
+			@include pantalla(large) {
+				border-radius: 6rem 6rem 0 0;
+			}
+		}
+
+		&__descripcion {
+			font-family: 'Patua One', serif;
+			font-size: var(--fs-pResaltado);
+			line-height: 1.2;
+			text-align: center;
+			padding: 2rem 1rem;
+			max-width: 45ch;
+			margin: 0 auto;		
+		}
+	}
+
+	.fichas {
+
+		&__menu {
+			margin: 0 auto;
+			padding: 0;
+			list-style: none;
+			max-width: 1200px;
+			display: flex;
+
+			.fichas__boton {
+				flex: 1;
+
+				&--mexico {
+					background-color: $moradoPrincipal;
+
+					a {
+						color: $mentaSecundario;
+					}
+				}
+
+				&--guatemala {
+					background-color: $mentaSecundario;
+
+					a {
+						color: $moradoPrincipal;
+					}
+				}
+
+				a {
+					text-decoration: none;
+					padding: 1rem 0;
+					font-size: var(--fs-pResaltado);
+					font-weight: 700;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+
+					img {
+						width: 100%;
+						height: 100%;
+						max-height: 200px;
+						padding: 1rem 0;
+					}
+
+				}
+
+				[aria-selected="true"] .elpais {
+					
+					text-decoration: underline;
+					text-decoration-thickness: 1.16rem;
+				}
+			}	
+		}
+
+		&__panel {
+			padding: 2rem 2rem 0;
+			max-width: calc(1200px - 4rem);
+			margin: 0 auto;
+
+			@include pantalla(large) {
+				padding: 4rem 4rem 0;
+				max-width: calc(1200px - 8rem);
+				border-radius: 0 0 6rem 6rem;
+
+			}
+
+			h3 {
+				text-align: center;
+				color: $naranjaSecundario;
+				margin: 2rem 1rem 3rem;
+			}
+			
+			> div {
+				display: flex;
+				flex-direction: column;
+				margin: 2rem 0;
+				align-items: center;
+
+				@include pantalla(medium){
+					flex-direction: row;
+					align-items: flex-start;
+					gap: 4rem;
+					
+				}
+
+				> .textoPais {
+					flex: 1;
+
+					p {
+						max-width: 45ch;
+						margin: 0 auto 1rem;
+					}
+
+				}
+
+				img {
+
+					flex: 1;
+					width: 100%;
+					height: 100%;
+					max-width: 450px;
+					margin: 2rem 0;
+					
+
+					
+
+					@include pantalla(medium) {
+						margin: 0 0 2rem;
+					}
+				}
+
+				&.flowInvertido {
+					flex-direction: column-reverse;
+
+					@include pantalla(medium){
+						flex-direction: row;
+					}
+				}
+			}
+
+			&--mexico {
+				background-color: $moradoPrincipal;
+				color: $blanco;
+				
+				div > img {
+					outline: solid 4px $moradoSecundario;
+					outline-offset: 0.5rem;
+				}
+			}
+
+			&--guatemala {
+				background-color: $mentaSecundario;
+				color: $moradoSecundario;
+
+				div > img {
+					outline: solid 4px $mentaPrincipal;
+					outline-offset: 0.5rem;
+				}
+			}
+
+			.datos {
+				background-color: $blanco;
+				color: $moradoSecundario;
+				padding: 1rem 1rem;
+				margin: 2rem 0 0;
+				border-radius: 2rem;
+
+				@include pantalla(medium) {
+					margin: 4rem auto 0;
+				}
+
+				ul {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+					max-width: 1400px;
+					padding: 0;
+					margin: 0 auto;
+					list-style: none;
+				}
+
+				li {					
+					padding: 0 2rem;
+					display: flex;
+					max-width: 250px;
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+
+					@include pantalla(normal) {
+						max-width: 350px;
+					}
+					
+				}
+
+				em {
+					display: block;
+					font-style: normal;
+					font-size: var(--fs-pResaltado);
+					font-weight: 700;
+					color: $naranjaSecundario;
+				}
+
+				img {
+					margin: 0 0 -2rem;
+
+				}
+			}
+		}
+
+		&__footer {
+
+			.fichas__fuente {
+				text-align: center;
+				padding: 0 0 1rem;
+			}
+
+			.informacionAdicional {
+				text-align: center;
+				padding: 1rem 0 2rem;
+
+				display: flex;
+				flex-direction: column;
+
+				max-width: 400px;
+				margin: 0 auto;
+
+				@include pantalla(medium) {
+					flex-direction: row;
+					max-width: 700px;
+					align-items: center;
+					gap: 2rem;
+					text-align: left;
+
+				}
+				p {
+					flex: 2;
+				}
+				a {
+					flex: 3;
+					color: $moradoSecundario;
+					transition: all 0.2s ease-in-out;
+
+					&:hover {
+						color: $naranjaSecundario;
+					}
+				}
+				
+				img {
+					box-sizing: border-box;
+					width: 100%;
+					height: 100%;
+					border: solid 4px $blanco;
+					border-radius: 0.5rem;
+
+					&:hover {
+						border: solid 4px $naranjaSecundario;
+					}
+				}
+			}	
+		}
+	}
+
+	.deber {
+		background-color: $mentaSecundario;
+		margin: 2rem 0 0;
+		padding: 2rem 0 0;
+		line-height: 0;
+		text-align: center;
+
+		background-image: url(../img/pagina2_seccion3-fondo.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		&__titulo {
+			margin: 2rem auto;
+			text-align: center;
+			color: $moradoPrincipal;
+			font-size: var(--fs-titulos);
+		}
+
+		&__textos {
+			text-align: center;
+			padding: 0 2rem;
+			max-width: 45ch;
+			margin: 0 auto;
+			color: $moradoSecundario;
+			font-size: var(--fs-pResaltado);
+		}
+
+		&__imagen {
+			width: 100%;
+			height: 100%;
+			max-width: 1000px;	
+		}
+	}
+
+	.videos {
+		padding: 2rem 0;
+		
+		@include pantalla(normal) {
+			padding: 4rem;
+		}
+		
+		&__textos {
+			font-family: 'Patua One', serif;
+			font-size: var(--fs-subtitulos);
+			line-height: 1.1;
+			color: $naranjaSecundario;
+			padding: 0 1rem;
+			text-align: center;
+			max-width: 35ch;
+			margin: 0 auto 2rem;
+		}
+
+		&__galeria {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 3rem 2rem;
+			padding: 3rem 1rem;
+
+			@include pantalla(medium) {
+				flex-direction: row;
+				flex-wrap: wrap;
+				max-width: 1200px;
+				margin: 0 auto;
+				justify-content: center;
+				
+			}
+
+		}
+
+		&__clip {
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			max-width: 500px;
+		}
+	}
+
+	&__footer {
+		background-color: $moradoSecundario;
+		margin: 0;
+		padding: 5rem 0 8rem;
+		color: $blanco;
+
+		p {
+			font-size: var(--fs-subtitulos);
+			font-family: 'Patua One', serif;
+			line-height: 1.2;
+			text-align: center;
+			max-width: 30ch;
+			margin: 0 auto;
+			padding: 0 2rem 2rem;
+		}
+
+		a{
+			display: block;
+			width: 50%;
+			max-width: 25ch;
+			padding: 1rem 2rem;
+			margin: 0 auto;
+			font-size: var(--fs-p);
+			line-height: 1.4;
+			font-weight: 700;
+			text-decoration: none;
+			color: $moradoSecundario;
+			background-color: $mentaSecundario;
+			border-radius: 1rem;
+			box-shadow: 4px 4px 0 $moradoPrincipal;
+			text-align: center;
+			transition: all 0.2s ease-in-out;
+
+			&:hover,
+			&:active {
+				background-color: $naranjaSecundario;
+				color: $blanco;
+				box-shadow: 4px 4px 0 $amarilloSecundario;
+			}
+		}
+	}
+
+}
+

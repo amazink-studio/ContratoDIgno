@@ -1,0 +1,21 @@
+//mediaquery
+@use "breakpoints" as *;
+
+@mixin pantalla($puntoRuptura) {
+	$puntos: map-get($puntosRuptura, $puntoRuptura);
+
+	@if $puntos {
+		$punto: if(
+			type-of($puntos) == 'string',
+			unquote($puntos),
+			inspect($puntos)
+		);
+
+		@media #{$punto} {
+			@content;
+		}
+	} @else {
+		@error 'No se ha encontrado un valor para `#{$puntoRuptura}`. '
+         + 'Por favor, asegúrate que está definido en el mapa `$puntosRuptura`.';
+	}
+}

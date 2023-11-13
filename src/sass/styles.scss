@@ -1,0 +1,60 @@
+@charset 'UTF-8';
+@use 'abstracts/variables' as *;
+@use 'base/typography' as *;
+@use 'components/menu' as *;
+@use 'components/footer' as *;
+@use 'pages/inicio' as *;
+@use 'pages/hoy' as *;
+@use 'pages/mannana' as *;
+@use 'pages/enlaces' as *;
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: $blanco;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+main {
+	width: 100%;
+}
+
+/* Para ocultar visualmente y de los lectores de pantalla */
+.hidden, [hidden] {
+	display: none !important;
+}
+
+/* Para ocultar visualmente pero no de los lectoras de pantalla	 */
+.sr-only {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 0;
+	font-size: 0;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+	/* 1 */
+}
+/* Lo visible sólo para lectores de pantalla puede ser accedido por el teclado */
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	white-space: inherit;
+	width: auto;
+}
+
+/* Para esconder de todos los navegadores pero manteniendo el layout */
+.invisible {
+	visibility: hidden;
+}
